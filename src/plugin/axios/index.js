@@ -60,6 +60,7 @@ service.interceptors.response.use(
   response => {
     // dataAxios 是 axios 返回数据中的 data
     const dataAxios = response.data
+    console.warn('Request,url:', response.config.url, '；query:', response.config.params, '；data:', response.config.data, '；response:', dataAxios)
     // 这个状态码是和后端约定的
     const { code } = dataAxios
     // 根据 code 进行判断
@@ -71,7 +72,9 @@ service.interceptors.response.use(
       switch (code) {
         case 0:
           // [ 示例 ] code === 0 代表没有错误
-          return dataAxios.data
+          // return dataAxios.data
+          // update by greper
+          return dataAxios
         case 'xxx':
           // [ 示例 ] 其它和后台约定的 code
           errorCreate(`[ code: xxx ] ${dataAxios.msg}: ${response.config.url}`)
@@ -82,6 +85,7 @@ service.interceptors.response.use(
           break
       }
     }
+    return dataAxios
   },
   error => {
     if (error && error.response) {

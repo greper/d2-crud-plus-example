@@ -9,3 +9,8 @@ coverage/
 # 忽略文件
 **/*-min.js
 **/*.min.js
+
+src/business/plugin/d2-crud/*
+src/business/plugin/d2-crud-plus/*
+!src/business/plugin/d2-crud-plus/src
+!src/business/plugin/d2-crud-plus/index.js

@@ -1,6 +1,6 @@
 {
-  "name": "d2-admin",
-  "version": "1.7.2",
+  "name": "d2-crud-plus-example",
+  "version": "1.0.0",
   "scripts": {
     "serve": "vue-cli-service serve --open",
     "start": "npm run serve",
@@ -12,6 +12,7 @@
     "test:unit": "vue-cli-service test:unit"
   },
   "dependencies": {
+    "d2-crud-plus": "1.0.1",
     "axios": "^0.18.0",
     "better-scroll": "^1.15.2",
     "core-js": "^2.6.5",

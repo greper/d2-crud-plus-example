@@ -1,5 +1,5 @@
 import layoutHeaderAside from '@/layout/header-aside'
-
+import { businessFrameIn, businessFrameOut, businessErrorPage } from '@/business/routers/routers'
 // 由于懒加载页面太多的话会造成webpack热更新太慢，所以开发环境不使用懒加载，只有生产环境使用懒加载
 const _import = require('@/libs/util.import.' + process.env.NODE_ENV)
 
@@ -20,34 +20,6 @@ const frameIn = [
           auth: true
         },
         component: _import('system/index')
-      },
-      // 演示页面
-      {
-        path: 'page1',
-        name: 'page1',
-        meta: {
-          title: '页面 1',
-          auth: true
-        },
-        component: _import('demo/page1')
-      },
-      {
-        path: 'page2',
-        name: 'page2',
-        meta: {
-          title: '页面 2',
-          auth: true
-        },
-        component: _import('demo/page2')
-      },
-      {
-        path: 'page3',
-        name: 'page3',
-        meta: {
-          title: '页面 3',
-          auth: true
-        },
-        component: _import('demo/page3')
       },
       // 系统 前端日志
       {
@@ -72,7 +44,8 @@ const frameIn = [
         name: 'redirect',
         hidden: true,
         component: _import('system/function/redirect')
-      }
+      },
+      ...businessFrameIn
     ]
   }
 ]
@@ -86,7 +59,8 @@ const frameOut = [
     path: '/login',
     name: 'login',
     component: _import('system/login')
-  }
+  },
+  ...businessFrameOut
 ]
 
 /**
@@ -97,7 +71,8 @@ const errorPage = [
     path: '*',
     name: '404',
     component: _import('system/error/404')
-  }
+  },
+  ...businessErrorPage
 ]
 
 // 导出需要显示菜单的

@@ -1,5 +1,4 @@
-[![Build Status](https://www.travis-ci.org/d2-projects/d2-admin-start-kit.svg?branch=master)](https://www.travis-ci.org/d2-projects/d2-admin-start-kit)
+此为d2-crud-plus的示例,基于d2-admin    
+https://github.com/greper/d2-crud-plus
 
-[D2Admin](https://github.com/d2-projects/d2-admin) 简化版起始模板，删除所有完整版中的示例代码，保留所有核心功能。
-
-[码云镜像](https://gitee.com/fairyever/d2-admin-start-kit)
+<a href="https://github.com/d2-projects/d2-admin" target="_blank"><img src="https://raw.githubusercontent.com/FairyEver/d2-admin/master/doc/image/d2-admin@2x.png" width="200"></a>
