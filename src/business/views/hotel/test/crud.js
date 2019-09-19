@@ -6,48 +6,47 @@ export const crudOptions = {
       sortable: true,
       type: 'date',
       search: {
-        columnName: 'device_name',
-        search: false
+        key: 'create_date',
+        disabled: true
       },
       form: {
-        addDisabled: true,
+        disabled: true,
         rules: [
           { required: true, message: '请输入日期' }
         ]
       }
     },
     {
-      title: '姓名',
-      key: 'name',
+      title: '状态',
+      key: 'status',
       sortable: true,
       search: {
-        columnName: 'device_name',
-        search: false
+        key: 'status',
+        disabled: false
       },
       type: 'select',
       form: {
-        rules: [{ required: true, message: '请输入姓名' }]
+        rules: [{ required: true, message: '请选择状态' }]
       },
       dict: {
-        url: '/hotel/basic/dicts/OtaDownTypeEnum'
+        url: '/api/dicts/OpenStatusEnum'
       }
     },
     {
-      title: '地址', //  label: '设备名字',
-      key: 'address', // prop: 'deviceName',
+      title: '地区',
+      key: 'province',
       sortable: true,
       search: {
-        columnName: 'device_name',
-        search: false
+        key: 'province',
+        disabled: false
       },
       type: 'select',
       form: {
-        rules: [{ required: true, message: '请输入地址' }]
+        rules: [{ required: true, message: '请选择地区' }]
       },
       dict: {
-        data: [{ value: 'sz', label: '深圳' }, { value: 'gz', label: '广州' }]
+        data: [{ value: 'sz', label: '深圳' }, { value: 'gz', label: '广州' }, { value: 'wh', label: '武汉' }, { value: 'sh', label: '上海' }]
       }
-
     }
   ]
 }

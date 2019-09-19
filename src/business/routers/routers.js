@@ -39,6 +39,15 @@ export const businessFrameIn = [
       auth: true
     },
     component: _import('hotel/room/roomtype')
+  },
+  {
+    path: 'hotel/test',
+    name: 'hotelTest',
+    meta: {
+      title: '测试页面',
+      auth: true
+    },
+    component: _import('hotel/test')
   }
 ]
 

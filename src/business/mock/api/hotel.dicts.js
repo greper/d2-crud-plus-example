@@ -27,6 +27,12 @@ const roomList = [
   { 'name': '11', 'value': 11, 'label': '1011', 'color': 'danger' }
 ]
 
+const openStatus = [
+  { 'value': '1', 'label': '打开', 'color': 'success' },
+  { 'value': '2', 'label': '停止', 'color': 'info' },
+  { 'value': '0', 'label': '关闭', 'color': 'danger' }
+]
+
 export default [
   {
     path: '/api/hotel/roomtype/options',
@@ -58,6 +64,17 @@ export default [
         code: 0,
         msg: 'success',
         data: roomList
+      }
+    }
+  },
+  {
+    path: '/api/dicts/OpenStatusEnum',
+    method: 'get',
+    handle ({ body }) {
+      return {
+        code: 0,
+        msg: 'success',
+        data: openStatus
       }
     }
   }

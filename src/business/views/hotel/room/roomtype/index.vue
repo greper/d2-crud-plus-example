@@ -50,7 +50,7 @@ export default {
     getCrudOptions () {
       return crudOptions
     },
-    fetchList (query) {
+    pageRequest (query) {
       return GetList(query)
     },
     addRequest (row) {

@@ -15,7 +15,8 @@ export default [
     title: '设置',
     icon: 'folder-o',
     children: [
-      { path: '/hotel/info', title: '酒店信息' }
+      { path: '/hotel/info', title: '酒店信息' },
+      { path: '/hotel/test', title: '测试页面' }
     ]
   }
 ]

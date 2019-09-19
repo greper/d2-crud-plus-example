@@ -28,7 +28,6 @@ export const crudOptions = {
       search: {
         disabled: true
       },
-
       type: 'datetime',
       width: '160',
       form: {

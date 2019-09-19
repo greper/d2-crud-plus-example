@@ -1,7 +1,7 @@
 <template>
   <d2-container>
-    <template slot="header">房间管理</template>
-    <crud-search ref="search" :options="crud.columns" @submit="handleSearch" class="d2-mb-10" ></crud-search>
+    <template slot="header">测试页面</template>
+    <crud-search ref="search" :options="crud.searchOptions" @submit="handleSearch" class="d2-mb-10" ></crud-search>
     <d2-crud
         ref="d2Crud"
         :columns="crud.columns"
@@ -35,20 +35,13 @@
 import { crudOptions } from './crud'
 import d2CrudPlus from '@d2-crud-plus'
 export default {
-  name: 'roomList',
+  name: 'testPage',
   mixins: [d2CrudPlus.crud],
-  data () {
-    return {
-    }
-  },
-  created () {
-    this.initColumns()
-  },
   methods: {
     getCrudOptions () {
       return crudOptions
     },
-    fetchList (query) {
+    pageRequest (query) {
       return new Promise(resolve => {
         resolve({
           code: 1,
@@ -60,23 +53,23 @@ export default {
             records: [
               {
                 date: '2016-05-02',
-                name: '王小虎',
-                address: '上海市普陀区金沙江路 1518 弄'
+                status: '0',
+                province: 'sz'
               },
               {
                 date: '2016-05-04',
-                name: '王小虎',
-                address: '上海市普陀区金沙江路 1517 弄'
+                status: '1',
+                province: 'sh'
               },
               {
                 date: 2232433534511,
-                name: '王小虎',
-                address: '上海市普陀区金沙江路 1519 弄'
+                status: '1',
+                province: 'gz'
               },
               {
                 date: '2016-05-03',
-                name: '王小虎',
-                address: '上海市普陀区金沙江路 1516 弄'
+                status: '2',
+                province: 'wh'
               }
             ]
           }

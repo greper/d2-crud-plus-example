@@ -45,7 +45,7 @@ export default {
     }
   },
   methods: {
-    fetchList (query) {
+    pageRequest (query) {
       return GetList(query)
     }
   }

@@ -54,7 +54,7 @@ export default {
     getCrudOptions () {
       return crudOptions
     },
-    fetchList (query) {
+    pageRequest (query) {
       return GetRoomList(query)
     },
     addRequest (row) {
