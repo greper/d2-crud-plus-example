@@ -198,6 +198,9 @@
               :scope="scope"
             >
             </render-component>
+            <template v-else-if="item.rowSlot === true">
+              <slot :name="item.key+'Slot'" v-bind:row="scope.row"></slot>
+            </template>
             <template v-else>{{item.formatter ? item.formatter(scope.row, scope.column, _get(scope.row, item.key), scope.$index) : _get(scope.row, item.key)}}</template>
           </template>
           <template v-if="item.children">
@@ -596,8 +599,11 @@
                 :label="handleFormTemplateMode(key).title"
                 :prop="key"
               >
+                <template v-if="handleFormTemplateMode(key).slot === true">
+                  <slot :name="key+'FormSlot'" v-bind:form="formData" ></slot>
+                </template>
                 <el-input
-                  v-if="(!handleFormTemplateMode(key).component) ||((!handleFormTemplateMode(key).component.name) && (!handleFormTemplateMode(key).component.render)) || handleFormTemplateMode(key).component.name === 'el-input'"
+                  v-else-if="(!handleFormTemplateMode(key).component) ||((!handleFormTemplateMode(key).component.name) && (!handleFormTemplateMode(key).component.render)) || handleFormTemplateMode(key).component.name === 'el-input'"
                   v-model="formData[key]"
                   v-bind="$d2CrudSize ? Object.assign({ size: $d2CrudSize}, handleFormTemplateMode(key).component) : handleFormTemplateMode(key).component"
                   @change="$emit('form-data-change', {key: key, value: value})"
