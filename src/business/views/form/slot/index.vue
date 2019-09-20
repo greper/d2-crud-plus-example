@@ -4,19 +4,15 @@
       <el-button @click="drawer = true" type="primary" style="margin-left: 16px;float:right">
         帮助
       </el-button>
-      <el-drawer
-              title="插槽式自定义组件帮助说明"
-              :visible.sync="drawer"
-              direction="rtl"
-              width="50%"
-              >
-        <p>自定义插槽需要<a href="">d2-crud的修改版</a>才能支持</p>
-
-      </el-drawer>
+      <example-helper title="插槽式自定义组件帮助说明" >
+          <span>自定义插槽需要<a href="https://github.com/greper/d2-crud" target="_blank">d2-crud的修改版</a>才能支持</span>
+          <d2-highlight :code="helper.crud"/>
+          <d2-highlight :code="helper.template"/>
+      </example-helper>
     </template>
     <crud-search ref="search" :options="crud.searchOptions" @submit="handleSearch" class="d2-mb-10" >
       <template slot="slotExampleSearchSlot" slot-scope="scope">
-        <el-input v-model="scope.form['slotExample']" placeholder="这是写在slot上的"></el-input>
+        <el-input v-model="scope.form['slotExample']" placeholder="这是通过slot自定义的"></el-input>
       </template>
     </crud-search>
     <d2-crud
@@ -42,7 +38,7 @@
         <el-tag>{{scope.row['slotExample']}}</el-tag>
       </template>
       <template slot="slotExampleFormSlot" slot-scope="scope">
-        <el-input v-model="scope.form['slotExample']" placeholder="这是通过slot自定义的"></el-input>
+        slot自定义：<el-input v-model="scope.form['slotExample']" placeholder="这是通过slot自定义的" style="width:130px" ></el-input>
       </template>
     </d2-crud>
     <crud-footer ref="footer" slot="footer"
@@ -59,12 +55,21 @@
 import { AddObj, GetList, UpdateObj, DelObj } from './api'
 import { crudOptions } from './crud'
 import d2CrudPlus from '@d2-crud-plus'
+import helper from './helper'
 export default {
   name: 'selectPage',
+  components: {},
   mixins: [d2CrudPlus.crud],
   data () {
     return {
-      drawer: false
+      helper: helper
+    }
+  },
+  computed: {
+    helperHeight () {
+      let height = document.documentElement.clientHeight - 100
+      console.log('height:', height)
+      return height + 'px'
     }
   },
   methods: {
