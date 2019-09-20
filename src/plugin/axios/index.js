@@ -60,7 +60,12 @@ service.interceptors.response.use(
   response => {
     // dataAxios 是 axios 返回数据中的 data
     const dataAxios = response.data
-    console.warn('Request,url:', response.config.url, '；query:', response.config.params, '；data:', response.config.data, '；response:', dataAxios)
+    console.info('--------Request-------------' +
+      '\r\n--------url:', response.config.url,
+    '\r\n--------query:', response.config.params,
+    '\r\n--------data:', response.config.data != null && typeof (response.config.data) === 'string' ? JSON.parse(response.config.data) : response.config.data,
+    '\r\n--------response:', dataAxios,
+    '\r\n------------------------------')
     // 这个状态码是和后端约定的
     const { code } = dataAxios
     // 根据 code 进行判断

@@ -4,6 +4,36 @@ const _import = require('./util.import.' + process.env.NODE_ENV)
  * 在主框架内显示
  */
 export const businessFrameIn = [
+
+  // form
+  {
+    path: 'form/date',
+    name: 'formDate',
+    meta: {
+      title: '日期时间',
+      auth: true
+    },
+    component: _import('form/date')
+  },
+  {
+    path: 'form/select',
+    name: 'formSelect',
+    meta: {
+      title: '选择组件',
+      auth: true
+    },
+    component: _import('form/select')
+  },
+  {
+    path: 'form/slot',
+    name: 'formSlot',
+    meta: {
+      title: '插槽式自定义组件',
+      auth: true
+    },
+    component: _import('form/slot')
+  },
+  //  酒店示例
   {
     path: 'hotel/dashboard',
     name: 'hotelDashboard',

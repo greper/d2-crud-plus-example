@@ -42,7 +42,14 @@ export const crudOptions = {
       },
       type: 'select',
       form: {
-        rules: [{ required: true, message: '请选择地区' }]
+        rules: [{ required: true, message: '请选择地区' }],
+        component: {
+          props: {
+            filterable: true,
+            multiple: true,
+            clearable: true
+          }
+        }
       },
       dict: {
         data: [{ value: 'sz', label: '深圳' }, { value: 'gz', label: '广州' }, { value: 'wh', label: '武汉' }, { value: 'sh', label: '上海' }]

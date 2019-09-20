@@ -17,7 +17,6 @@ export const crudOptions = {
         editDisabled: true,
         rules: [{ required: true, message: '请输入id' }]
       }
-
     },
     {
 
@@ -37,7 +36,6 @@ export const crudOptions = {
       }
     },
     {
-
       title: '房间名称',
       key: 'name',
       sortable: true,
