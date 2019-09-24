@@ -1,20 +1,25 @@
 <template>
-  <el-drawer
-          :title="title"
-          :visible.sync="drawer"
-          direction="rtl"
-          size="50%"
-  >
-    <div v-bind:style="{ padding:'20px','height': helperHeight ,'overflow-y': 'scroll',border: '1px solid #eee'}" >
-      <slot></slot>
-    </div>
-  </el-drawer>
+  <div  style="margin-left: 16px;float:right">
+    <el-button @click="drawer = true" type="primary">
+      帮助
+    </el-button>
+    <el-drawer
+            :title="title"
+            :visible.sync="drawer"
+            direction="rtl"
+            size="50%"
+    >
+      <div v-bind:style="{ padding:'20px','height': helperHeight ,'overflow-y': 'scroll',border: '1px solid #eee'}" >
+        <slot></slot>
+      </div>
+    </el-drawer>
+  </div>
 </template>
 <script>
 export default {
   name: 'example-helper',
   props: {
-    drawer: {
+    open: {
       type: Boolean,
       required: false,
       default: true
@@ -27,6 +32,12 @@ export default {
   },
   data () {
     return {
+      drawer: true
+    }
+  },
+  created () {
+    if (this.open != null) {
+      this.drawer = this.open
     }
   },
   computed: {

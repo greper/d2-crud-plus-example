@@ -33,6 +33,15 @@ export const businessFrameIn = [
     },
     component: _import('form/slot')
   },
+  {
+    path: 'form/phone',
+    name: 'formPhone',
+    meta: {
+      title: '国际电话输入框',
+      auth: true
+    },
+    component: _import('form/phone')
+  },
   //  酒店示例
   {
     path: 'hotel/dashboard',

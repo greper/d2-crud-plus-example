@@ -15,6 +15,7 @@
         :edit-rules="crud.editRules"
         :form-options="crud.formOptions"
         :options="crud.options"
+        :loading="crud.loading"
         @dialog-open="handleDialogOpen"
         @row-edit="handleRowEdit"
         @row-add="handleRowAdd"
@@ -22,7 +23,7 @@
         @dialog-cancel="handleDialogCancel">
       <el-button slot="header" style="margin-bottom: 5px" size="small" type="primary" @click="addRow">新增</el-button>
     </d2-crud>
-    <crud-footer ref="footer" slot="footer"
+    <crud-footer ref="footer"
                   :current="crud.page.pageCurrent"
                   :size="crud.page.pageSize"
                   :total="crud.page.pageTotal"
