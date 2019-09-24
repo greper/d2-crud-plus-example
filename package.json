@@ -1,6 +1,6 @@
 {
   "name": "d2-crud-plus-example",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "scripts": {
     "serve": "vue-cli-service serve --open",
     "start": "npm run serve",
@@ -32,7 +32,8 @@
     "vue-i18n": "^8.14.0",
     "vue-router": "^3.0.3",
     "vuex": "^3.0.1",
-    "el-phone-number-input": "^1.0.1"
+    "el-phone-number-input": "^1.0.1",
+    "d2-crud-plus": "^1.0.2"
   },
   "devDependencies": {
     "@kazupon/vue-i18n-loader": "^0.4.1",
