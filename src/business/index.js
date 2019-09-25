@@ -1,3 +1,3 @@
-import './plugin'
+import './lib'
 import './components'
 import './filters'

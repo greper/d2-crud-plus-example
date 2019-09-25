@@ -10,8 +10,11 @@ export default {
   },
   created () {
     this.initColumns()
+    this.afterInit()
   },
   methods: {
+    afterInit () {
+    },
     getCrudOptions () {
       return crudOptions
     },
