@@ -16,12 +16,5 @@ yarn-error.log*
 *.sln
 *.sw*
 src/business/plugin/d2-crud/*
-!src/business/plugin/d2-crud/src/
-!src/business/plugin/d2-crud/src/*
-!src/business/plugin/d2-crud/index.js
-
 src/business/plugin/d2-crud-plus/*
-!src/business/plugin/d2-crud-plus/src/
-!src/business/plugin/d2-crud-plus/src/*
-!src/business/plugin/d2-crud-plus/index.js
 
