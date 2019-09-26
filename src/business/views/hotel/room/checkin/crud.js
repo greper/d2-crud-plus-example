@@ -1,4 +1,5 @@
 import dayjs from 'dayjs'
+import { mobileValidator } from 'el-phone-number-input'
 function toNooning (date) {
   if (date == null) {
     date = new Date()
@@ -47,43 +48,27 @@ export const crudOptions = {
       }
     },
     {
-      title: '区号',
-      key: 'telAreaCode',
-      sortable: true,
-      align: 'center',
-      type: 'select',
-      search: {
-        disabled: false
-      },
-      dict: {
-        data: [
-          { value: '86', label: '中国大陆(86)' },
-          { value: '852', label: '中国香港(852)' },
-          { value: '853', label: '中国澳门(853)' },
-          { value: '856', label: '中国台湾(856)' },
-          { value: '1', label: '美国(1)' }
-        ]
-      },
-      form: {
-        editDisabled: true,
-        rules: [{ required: true, message: '请输入区号' }]
-      }
-    },
-    {
       title: '手机号',
-      key: 'mobile',
+      key: 'mobileValue',
       sortable: true,
       align: 'center',
       search: {
-        disabled: false
+        disabled: false,
+        width: '260px'
       },
+      type: 'phoneNumber',
       form: {
         editDisabled: true,
-        // TODO 这里手机号验证要换成国际的
-        rules: [{ required: true, message: '请输入手机' }, { pattern: '^1[34578]\\d{9}$', message: '手机号不正确' }]
+        rules: [{ required: true, message: '请输入手机号' }, { validator: mobileValidator, message: '手机号不正确' }]
       },
-      component: {
-        name: 'values-format'
+      valueBuilder (row) {
+        row.mobileValue = { phoneNumber: row.mobile, callingCode: row.telAreaCode }
+      },
+      valueResolve (row) {
+        if (row.mobileValue != null) {
+          row.mobile = row.mobileValue.phoneNumber
+          row.telAreaCode = row.mobileValue.callingCode
+        }
       }
     },
     {

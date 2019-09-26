@@ -4,7 +4,7 @@
 
 # d2-crud-plus
 基于d2-admin 的 d2-crud 的扩展,简化d2-crud配置，快速开发crud功能。    
-【https://github.com/greper/d2-crud-plus】   
+https://github.com/greper/d2-crud-plus   
 
 ## 特性
 以约定优于配置原则简化d2-crud繁琐的配置，只需要配置column即可。   

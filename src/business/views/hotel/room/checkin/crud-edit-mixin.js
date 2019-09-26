@@ -28,7 +28,6 @@ export default {
     },
     beforeRequest (row) {
       let checkInRange = row.checkInRange // 一个date数组
-      console.log(checkInRange)
       if (checkInRange != null && checkInRange.length >= 2) {
         row.checkInTime = checkInRange[0].getTime()
         row.checkOutTime = checkInRange[1].getTime()
