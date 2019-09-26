@@ -208,6 +208,20 @@ export default {
 ## 文档
 ### 1. 配置说明
 
+#### * 简单配置
+```javascript
+export const crudOptions = {
+  columns: [ //字段配置
+    {
+      title: '地区',  
+      key: 'province', 
+      type: 'select',
+      dict: {url:'/dict/getProvinceList'}
+    }
+  ]
+}
+```
+#### * 最全配置
 ```javascript
 export const crudOptions = {
   columns: [ //字段配置
