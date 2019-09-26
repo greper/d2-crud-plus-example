@@ -214,6 +214,7 @@ export const crudOptions = {
     {
       title: '地区',  
       key: 'province', 
+      // -----下方的配置都是可选的------
       type: 'select', //字段类型，根据类型可生成该字段的默认配置，下方那么多配置基本可以不用写
       sortable: true, //是否支持排序
       search: {
