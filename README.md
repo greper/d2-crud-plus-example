@@ -14,7 +14,6 @@ https://github.com/greper/d2-crud-plus
 addTemplate、editTemplate根据column配置自动生成
 
 ### 2. 简化component配置   
-
 column用type字段来自动配置component    
 同时也支持自定义组件    
 **目前支持**：   
@@ -27,12 +26,11 @@ column用type字段来自动配置component
 * column中可以配置各个字段是否开启search
 
 ### 4. 枚举字典功能  
-
 * 支持本地和远程获取
 * 轻松实现数据存的是value值，需要对应字典的label来展示，配合select等使用更佳
 
 ### 5. d2-crud-x,基于d2-crud的修改版，功能与d2-crud一致【可选】
-见【https://github.com/greper/d2-crud-plus/blob/master/src/d2-crud-x/README.md
+见【https://github.com/greper/d2-crud/
 * 支持隐藏表格，自定义列表展示方式【配置options.hide=true】
 * 支持slot编写各个字段的form表单
 
@@ -131,6 +129,7 @@ export const crudOptions = {
 ![](https://raw.githubusercontent.com/greper/d2-crud-plus/master/doc/image/add.png)
 
 ![](https://raw.githubusercontent.com/greper/d2-crud-plus/master/doc/image/edit.png)
+
 
 
 
