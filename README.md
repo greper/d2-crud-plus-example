@@ -35,11 +35,11 @@ column用type字段来自动配置component
 * 支持slot编写各个字段的form表单
 
 ## 快速开始
-###1.安装
+### 1.安装
 ```shell
 npm i  @d2-project/d2-crud  d2-crud-plus  -S
 ```
-###2.引入
+### 2.引入
  ```javascript
 import d2Crud from '@d2-project/d2-crud'
 import { d2CrudPlus } from 'd2-crud-plus'
@@ -53,7 +53,7 @@ Vue.use(d2CrudX)
 Vue.use(d2CrudPlus)
 
  ```
-###3. crud配置示例
+### 3. crud配置
 ```javascript
 export const crudOptions = {
   columns: [
@@ -113,7 +113,74 @@ export const crudOptions = {
   ]
 }
 ``` 
-###2. 示例数据
+### 4. page
+```
+<template>
+  <d2-container>
+    <template slot="header">测试页面</template>
+    <crud-search ref="search" :options="crud.searchOptions" @submit="handleSearch" class="d2-mb-10" ></crud-search>
+    <d2-crud
+        ref="d2Crud"
+        :columns="crud.columns"
+        :data="crud.list"
+        :rowHandle="crud.rowHandle"
+        edit-title="修改"
+        :add-template="crud.addTemplate"
+        :add-rules="crud.addRules"
+        :edit-template="crud.editTemplate"
+        :edit-rules="crud.editRules"
+        :form-options="crud.formOptions"
+        :options="crud.options"
+        @dialog-open="handleDialogOpen"
+        @row-edit="handleRowEdit"
+        @row-add="handleRowAdd"
+        @row-remove="handleRowRemove"
+        @dialog-cancel="handleDialogCancel">
+      <el-button slot="header" style="margin-bottom: 5px" size="small" type="primary" @click="addRow">新增</el-button>
+    </d2-crud>
+    <crud-footer ref="footer" slot="footer"
+                  :current="crud.page.pageCurrent"
+                  :size="crud.page.pageSize"
+                  :total="crud.page.pageTotal"
+                  @change="handlePaginationChange"
+    >
+    </crud-footer>
+  </d2-container>
+</template>
+
+<script>
+import { crudOptions } from './crud'
+import { d2CrudPlus } from 'd2-crud-plus'
+import { AddObj, GetList, UpdateObj, DelObj } from './api'
+export default {
+  name: 'testPage',
+  mixins: [d2CrudPlus.crud],
+  methods: {
+    getCrudOptions () {
+      return crudOptions
+    },
+    pageRequest (query) {
+      // 数据请求
+      return GetList(query)
+    },
+    addRequest (row) {
+      // 添加请求
+      return AddObj(row)
+    },
+    updateRequest (row) {
+      // 修改请求
+      return UpdateObj(row)
+    },
+    delRequest (row) {
+      // 删除请求
+      return DelObj(row.id)
+    },
+  }
+}
+</script>
+
+``` 
+### 5. 示例数据
 ```
  [
     {date: '2016-05-02',status: '0', province: 'sz'},
@@ -122,7 +189,7 @@ export const crudOptions = {
     {date: '2016-05-03',status: '2',province: 'wh,gz'}
   ]
 ```
-###3. 效果    
+### 6. 效果    
 
 ![](https://raw.githubusercontent.com/greper/d2-crud-plus/master/doc/image/list.png)
 
