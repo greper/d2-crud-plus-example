@@ -32,7 +32,7 @@ column用type字段来自动配置component
 * 轻松实现数据存的是value值，需要对应字典的label来展示，配合select等使用更佳
 
 ### 5. d2-crud-x,基于d2-crud的修改版，功能与d2-crud一致【可选】
-见【https://github.com/greper/d2-crud-plus/blob/master/src/d2-crud-x/README.md】
+见【https://github.com/greper/d2-crud-plus/blob/master/src/d2-crud-x/README.md
 * 支持隐藏表格，自定义列表展示方式【配置options.hide=true】
 * 支持slot编写各个字段的form表单
 
