@@ -33,19 +33,30 @@ column用type字段来自动配置component
 ### 1.安装
 ```shell
 npm i  @d2-project/d2-crud  d2-crud-plus  -S
+
+如果需要slot功能，需要用d2-crud-x替换d2-crud
+npm i  d2-crud-x  -S
 ```
 ### 2.引入
  ```javascript
-import d2Crud from '@d2-project/d2-crud'
 import { d2CrudPlus } from 'd2-crud-plus'
+import d2Crud from '@d2-projects/d2-crud'
+import Vue from 'vue'
+import request from '@/plugin/axios'
 Vue.use(d2Crud)
-Vue.use(d2CrudPlus)
+Vue.use(d2CrudPlus, {
+  getRemoteDictFunc (url) { //获取数据字典的请求
+    return request({
+      url: url,
+      method: 'get'
+    })
+  }
+})
 
-// 如果需要slot功能，要将d2-crud替换为d2-crud-x【功能与d2-crud一致】，代码如下
-import d2CrudX from 'd2-crud-plus/d2-crud-x'
-import { d2CrudPlus } from 'd2-crud-plus'
-Vue.use(d2CrudX)
-Vue.use(d2CrudPlus)
+// 如果需要slot功能，要将d2-crud替换为d2-crud-x【其他与d2-crud一致】
+import d2Crud from 'd2-crud-x'
+import Vue from 'vue'
+Vue.use(d2Crud)
 
  ```
 ### 3. crud配置
