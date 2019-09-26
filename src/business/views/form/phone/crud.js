@@ -5,7 +5,7 @@ export const crudOptions = {
       title: '手机号',
       key: 'mobileValue',
       sortable: true,
-      align: 'center',
+      align: 'left',
       search: {
         disabled: false,
         width: '260px'

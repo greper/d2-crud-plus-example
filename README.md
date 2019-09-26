@@ -44,13 +44,13 @@ npm i  @d2-project/d2-crud  d2-crud-plus  -S
 ###2.引入
  ```javascript
 import d2Crud from '@d2-project/d2-crud'
-import d2CrudPlus from 'd2-crud-plus'
+import { d2CrudPlus } from 'd2-crud-plus'
 Vue.use(d2Crud)
 Vue.use(d2CrudPlus)
 
 // 如果需要slot功能，要将d2-crud替换为d2-crud-x【功能与d2-crud一致】，代码如下
 import d2CrudX from 'd2-crud-plus/d2-crud-x'
-import d2CrudPlus from 'd2-crud-plus'
+import { d2CrudPlus } from 'd2-crud-plus'
 Vue.use(d2CrudX)
 Vue.use(d2CrudPlus)
 

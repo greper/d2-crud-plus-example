@@ -1,6 +1,6 @@
 import { crudOptions } from './crud'
 import { AddObj, UpdateObj, DelObj, DoCheckOut } from './api'
-import d2CrudPlus from '@d2-crud-plus'
+import { d2CrudPlus } from 'd2-crud-plus'
 
 export default {
   mixins: [d2CrudPlus.crud],

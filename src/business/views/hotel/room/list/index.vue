@@ -38,7 +38,7 @@
 
 <script>
 import { crudOptions } from './crud'
-import d2CrudPlus from '@d2-crud-plus'
+import { d2CrudPlus } from 'd2-crud-plus'
 import { AddRoom, GetRoomList, UpdateRoom, DelRoom } from './api'
 export default {
   name: 'roomList',

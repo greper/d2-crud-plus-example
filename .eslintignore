@@ -10,6 +10,7 @@ coverage/
 **/*-min.js
 **/*.min.js
 
+packages/d2-crud-plus/src/d2-crud-x/*
 src/business/plugin/d2-crud/*
 src/business/plugin/d2-crud-plus/*
 !src/business/plugin/d2-crud-plus/src
