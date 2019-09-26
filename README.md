@@ -15,12 +15,7 @@ addTemplate、editTemplate根据column配置自动生成
 
 ### 2. 简化component配置   
 column用type字段来自动配置component    
-同时也支持自定义组件    
-**目前支持**：   
- * input【默认】   
- * select【单选、多选、搜索选择】   
- * date类：datepicker【单个日期、日期段】、 datetimepicker【单个时间、时间段】、timepicker
- * 陆续增加中   
+同时也支持自定义类型   
  
 ### 3. 根据column配置开启关闭顶部查询
 * column中可以配置各个字段是否开启search
@@ -212,7 +207,8 @@ export const crudOptions = {
       sortable: true, //是否支持排序
       search: {
         disabled: false, //是否禁用该字段的查询，默认false
-        component:{} //查询框组件配置，默认根据form配置生成 
+        component:{}, //查询框组件配置，默认根据form配置生成 
+        slot:false //是否启用搜索框的slot插槽,需要d2-crud-x才支持，示例 http://qiniu.veryreader.com/D2CrudPlusExample/#/form/slot
       },
       form: {
         rules: [ // 表单校验规则
@@ -230,12 +226,13 @@ export const crudOptions = {
             multiple: true, //支持多选[不同组件参数不同]
             clearable: true //可清除[不同组件参数不同]
           }
-        }
+        },
+        slot:false //是否启用form编辑框的slot插槽,需要d2-crud-x才支持，示例 http://qiniu.veryreader.com/D2CrudPlusExample/#/form/slot
       },
       valueBuilder (row) {
         // 某些组件传入的value值可能是一个复杂对象，而row中的单个属性的值不合适传入
         // 则需要在打开编辑对话框前将row里面多个字段组合成组件需要的value对象
-        // 例如：国际手机号(mobileValue为此column的key)
+        // 例如：国际手机号(mobileValue为此column的key) 示例 http://qiniu.veryreader.com/D2CrudPlusExample/#/form/phone
         // row.mobileValue = { phoneNumber: row.phone, callingCode: row.code, countryCode: row.country }
       },
       valueResolve (row) { 
@@ -254,6 +251,10 @@ export const crudOptions = {
            { value: 'sh', label: '上海' }
         ],
         url:'/dict/get'// 若data为空，则通过http请求获取远程数据字典
+      },
+      rowSlot: false, // 是否启用该cell的slot插槽,需要d2-crud-x才支持，见 http://qiniu.veryreader.com/D2CrudPlusExample/#/form/slot
+      formatter (row, column, value, index) {
+        // cell 格式化，与d2-crud一致
       }
     }
   ],
@@ -288,6 +289,53 @@ export const crudOptions = {
 }
 
 ```
+
+### 2. 字段类型
+配置字段类型可生成默认配置，减少大部分的column繁琐配置   
+用户配置会覆盖默认配置，当需要定制某些部分的时候，只需要单独配置那一项即可
+#### a. 目前支持的类型   
+默认支持的类型：  
+ https://github.com/greper/d2-crud-plus/blob/master/src/lib/utils/util.column.resolve.js
+
+ * select【单选、多选、搜索选择】   
+ * date类：datepicker【单个日期、日期段】、 datetimepicker【单个时间、时间段】、timepicker
+ * phoneNumber：国际手机号输入框+校验
+
+
+   
+#### b. 自定义字段类型
+```javascript
+import { d2CrudPlus } from 'd2-crud-plus'
+Vue.use(d2CrudPlus)
+//自定义字段类型（其实就是事先定义好column的配置，根据type直接生成默认配置）
+d2CrudPlus.util.columnResolve.addTypes({
+  'time2':{
+     form: { component: { name: 'el-date-picker' } },
+     component: { name: 'date-format', props: { format: 'YYYY-MM-DD' } },
+     _handle (column) {
+       //  此方法主要将column中某些依赖的用户配置的属性放到默认配置中，比如数据字典的配置
+       if (column.dict != null) {
+         this.form.component.props.dict = column.dict
+         this.component.props.dict = column.dict
+       }
+     }
+  }
+})
+```
+
+
+### 3. 外部使用数据字典
+
+### 4. 
+
+## d2-crud-x文档
+d2-crud某些功能并不支持，d2-crud-x为d2-crud的修改版，用于支持一些新特性
+### 1. 字段插槽 slot
+字段组件可以随便作   
+示例 http://qiniu.veryreader.com/D2CrudPlusExample/#/form/slot
+### 2. 表格自定义
+某些需求下，数据内容展示方式不一定是表格，但又需要添加修改和删除功能
+示例：http://qiniu.veryreader.com/D2CrudPlusExample/#/hotel/dashboard
 
 
 

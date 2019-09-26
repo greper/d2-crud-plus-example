@@ -1,10 +1,8 @@
+export default {
+  code: `
 import { d2CrudPlus } from 'd2-crud-plus'
-import d2Crud from 'd2-crud-x'
 import Vue from 'vue'
-import { GetDictData } from '../api/sys.dicts'
-Vue.use(d2Crud)
-Vue.use(d2CrudPlus, { getRemoteDictFunc: GetDictData })
-
+Vue.use(d2CrudPlus)
 //  自定义字段类型示例
 d2CrudPlus.util.columnResolve.addTypes({
   'time2': {
@@ -22,3 +20,20 @@ d2CrudPlus.util.columnResolve.addTypes({
     }
   }
 })
+
+//然后在crudOptions中配置column中配置 type: 'time2'即可使用
+
+
+export const crudOptions = {
+  columns: [
+    {
+      title: '字段类型',
+      key: 'date',
+      align: 'left',
+      type: 'time2',
+      search: {}
+    }
+  ]
+}
+`
+}

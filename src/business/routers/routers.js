@@ -42,6 +42,15 @@ export const businessFrameIn = [
     },
     component: _import('form/phone')
   },
+  {
+    path: 'form/customType',
+    name: 'formCustomType',
+    meta: {
+      title: '自定义字段类型',
+      auth: true
+    },
+    component: _import('form/customType')
+  },
   //  酒店示例
   {
     path: 'hotel/dashboard',
