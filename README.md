@@ -1,4 +1,3 @@
-
 # d2-crud-plus-example
 基于d2-admin的d2-crud-plus的示例
 
@@ -16,6 +15,7 @@ addTemplate、editTemplate根据column配置自动生成
 ### 2. 简化component配置   
 column用type字段来自动配置component    
 同时也支持自定义类型   
+
  
 ### 3. 根据column配置开启关闭顶部查询
 * column中可以配置各个字段是否开启search
@@ -33,8 +33,10 @@ column用type字段来自动配置component
 ### 1.安装
 ```shell
 npm i  @d2-project/d2-crud  d2-crud-plus  -S
+```
 
 如果需要slot功能，需要用d2-crud-x替换d2-crud
+```shell
 npm i  d2-crud-x  -S
 ```
 ### 2.引入
